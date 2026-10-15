@@ -1,0 +1,167 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "85d822a3-d964-47ae-952e-8edf40f7deac",
+              "name": "ação",
+              "value": "={{ $json.action }}",
+              "type": "string"
+            },
+            {
+              "id": "525356a3-dc67-45aa-bacd-18352985e67e",
+              "name": "mensagem",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "2563f9fd-5272-4b02-934e-cdf78c00366e",
+              "name": "tipo",
+              "value": "automática",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        240,
+        48
+      ],
+      "id": "59e98cd8-f42c-40aa-ad99-c7f8fcf14a62",
+      "name": "adiciona campo Tipo",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fd92d8e0-294e-42aa-b3ce-b7855d8fe3a2",
+              "name": "mensagem",
+              "value": "={{ $json.mensagem }}",
+              "type": "string"
+            },
+            {
+              "id": "2f52eacf-2c5d-4908-a662-034fc86b4348",
+              "name": "tipo",
+              "value": "={{ $json.tipo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        464,
+        48
+      ],
+      "id": "d811f162-8c8a-4be8-915f-41bc037a175e",
+      "name": "limpeza do JSON"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        16,
+        48
+      ],
+      "id": "4e27e109-5e10-42ed-87f9-2bd6cf4db65f",
+      "name": "chat trigger",
+      "webhookId": "e5412bdb-c507-4da5-9a3c-e6ba12101614"
+    },
+    {
+      "parameters": {
+        "content": "*exemplo* automação falta parte de enviar por email",
+        "height": 80
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        288
+      ],
+      "typeVersion": 1,
+      "id": "13d6a700-d13f-4f5a-b9f7-72e6820b6371",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Região: Etapa limpeza do JSON",
+        "height": 272,
+        "width": 464,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "feea921f-685c-4b87-acc2-0b264968c8e2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "Região: Triggers",
+        "height": 208,
+        "width": 160,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        -16
+      ],
+      "typeVersion": 1,
+      "id": "dac3de0c-0f0b-4153-8249-a1b8988a3eb2",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "adiciona campo Tipo": {
+      "main": [
+        [
+          {
+            "node": "limpeza do JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chat trigger": {
+      "main": [
+        [
+          {
+            "node": "adiciona campo Tipo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "260d5a24-578e-4a66-b958-d5bd40315653",
+  "meta": {
+    "instanceId": "c1eeab90909f732b3743e0fbbed8ebf120dba709ac68716d8e33e6a9123ea8a4"
+  },
+  "nodeGroups": [],
+  "id": "zeSX1uQP63hKjNx6",
+  "tags": []
+}
