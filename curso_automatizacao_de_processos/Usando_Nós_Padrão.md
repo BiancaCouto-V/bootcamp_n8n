@@ -129,7 +129,7 @@ Ao longo do curso, foram explorados os seguintes conceitos:
 
 ## 5. Registro visual
 
-Abaixo está a imagem final do workflow desenvolvido durante as aulas.
+Abaixo está a imagem final do workflow desenvolvido durante as aulas. Baixe o arquivo Workflow1_curso2.json para explorar o workflow na íntegra.
 
 <img width="1447" height="588" alt="image" src="https://github.com/user-attachments/assets/4752644a-3122-4a13-aa08-2fe22e0ca4a2" />
 
